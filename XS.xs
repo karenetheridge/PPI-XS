@@ -36,7 +36,7 @@ SV *
 _PPI_Token_End__significant ( ... )
 PPCODE:
 {
-    XSRETURN_UNDEF;
+    XSRETURN_NO;
 }
 
 
