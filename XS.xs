@@ -100,9 +100,9 @@ SV *
 _PPI_Token__content ( ... )
 PPCODE:
 {
-    if (SvOK(ST(0)) && SvTYPE(ST(0)) == SVt_PVHV) {
+    if (SvROK(ST(0)) && SvTYPE(SvRV(ST(0))) == SVt_PVHV) {
         SV** content;
-        content = hv_fetch((HV*)ST(0), "content", 7, TRUE);
+        content = hv_fetch((HV*)SvRV(ST(0)), "content", 7, TRUE);
         if (content) {
             ST(0) = *content;
             XSRETURN(1);
@@ -116,9 +116,10 @@ SV *
 _PPI_Token__set_content ( ... )
 PPCODE:
 {
-    if (SvOK(ST(0)) && SvTYPE(ST(0)) == SVt_PVHV && SvOK(ST(1))) { 
-        if (hv_store((HV*)ST(0), "content", 7, ST(1), 0)) {
-            ST(0) = ST(1);
+    if (SvROK(ST(0)) && SvTYPE(SvRV(ST(0))) == SVt_PVHV && SvOK(ST(1))) { 
+        SV *copy = newSVsv(ST(1));
+        if (hv_store((HV*)SvRV(ST(0)), "content", 7, copy, 0)) {
+            ST(0) = copy;
             XSRETURN(1);
         }
     }
@@ -130,9 +131,9 @@ SV *
 _PPI_Token__add_content ( ... )
 PPCODE:
 {
-    if (SvOK(ST(0)) && SvTYPE(ST(0)) == SVt_PVHV && SvOK(ST(1))) {
+    if (SvROK(ST(0)) && SvTYPE(SvRV(ST(0))) == SVt_PVHV && SvOK(ST(1))) {
         SV** content;
-        content = hv_fetch((HV*)ST(0), "content", 7, TRUE);
+        content = hv_fetch((HV*)SvRV(ST(0)), "content", 7, TRUE);
         if (content) {
             ST(0) = *content;
             sv_catsv(ST(0), ST(1));

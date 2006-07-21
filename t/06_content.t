@@ -16,7 +16,7 @@ BEGIN {
 	}
 }
 
-use Test::More tests => 4 + 2 * 3;
+use Test::More tests => 4 + 2 * 5;
 
 # Load PPI
 $PPI::XS_DISABLE = 1;
@@ -43,7 +43,9 @@ exit(0);
 
 sub tests {
    my $Token = PPI::Token::Whitespace->new( ' ' );
-   is( $Token->content, ' ', 'PPI::Token::Whitespace' );
+   is( $Token->content, ' ', 'content' );
    is( $Token->set_content(' '), ' ', 'set_content' );
-   is( $Token->content, ' ', 'PPI::Token::Whitespace' );
+   is( $Token->content, ' ', 'content' );
+   is( $Token->add_content('foo'), ' foo', 'set_content' );
+   is( $Token->content, ' foo', 'content' );
 }
