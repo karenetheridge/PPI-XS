@@ -39,11 +39,6 @@ PPCODE:
     XSRETURN_NO;
 }
 
-
-
-
-
-
 SV *
 _PPI_Node__scope ( ... )
 PPCODE:

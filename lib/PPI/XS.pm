@@ -2,6 +2,7 @@ package PPI::XS;
 
 # See POD at end for documentation
 
+use 5.005;
 use strict;
 use XSLoader;
 
@@ -15,7 +16,7 @@ use PPI ();
 # Define compatibility information
 use vars qw{$VERSION $PM_COMPATIBLE %EXCLUDE};
 BEGIN {
-	$VERSION       = '0.900';
+	$VERSION       = '1.203';
 	$PM_COMPATIBLE = '0.844';
 	%EXCLUDE       = ();
 }
@@ -85,9 +86,9 @@ PPI::XS - XS acceleration for the PPI perl parser
 
 =head1 DESCRIPTION
 
-PPI::XS provides XS-based acceleration of the core PPI packages. It
-selectively replaces a (small but growing) number of methods throughout
-PPI with identical but much faster C versions.
+B<PPI::XS> provides XS-based acceleration for the core L<PPI> packages.
+It selectively replaces a (small but growing) number of methods
+throughout PPI with identical but much faster C versions.
 
 Once installed, it will be auto-detected and loaded in by PPI completely
 transparently.
@@ -116,9 +117,7 @@ For other issues or comments, contact the maintainer.
 
 =head1 AUTHOR
 
-Richard Soderburg (Maintainer), erm@erm.erm
-
-Adam Kennedy, L<http://ali.as/>, cpan@ali.as
+Adam Kennedy E<lt>adamk@cpan.orgE<gt>
 
 =head1 SEE ALSO
 
@@ -126,8 +125,7 @@ L<PPI>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2005 Richard Soderberg and Adam Kennedy.
-All rights reserved.
+Copyright 2005 - 2008 Richard Soderberg and Adam Kennedy.
 
 This program is free software; you can redistribute
 it and/or modify it under the same terms as Perl itself.

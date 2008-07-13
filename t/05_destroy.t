@@ -1,21 +1,13 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 
 # Load testing for PPI::XS
 
 # Tests to make sure that PPI::XS is autoloaded when PPI itself is loaded.
 
 use strict;
-use lib ();
-use UNIVERSAL 'isa';
-use File::Spec::Functions ':ALL';
 BEGIN {
-	$| = 1;
-	unless ( $ENV{HARNESS_ACTIVE} ) {
-		require FindBin;
-		$FindBin::Bin = $FindBin::Bin; # Avoid a warning
-		chdir catdir( $FindBin::Bin, updir() );
-		lib->import( 'blib', 'lib' );
-	}
+	$|  = 1;
+	$^W = 1;
 }
 
 use Test::More tests => 10;
@@ -36,16 +28,9 @@ ok( $PPI::XS::VERSION, 'PPI::XS is loaded' );
 # Run the tests again
 tests();
 
-exit(0);
-
-
-
-
-
-
 sub tests {
 	# Start with DESTROY for an element that never has a parent
-	{
+	SCOPE: {
 		my $Token = PPI::Token::Whitespace->new( ' ' );
 		my $k1 = scalar keys %PPI::Element::_PARENT;
 		$Token->DESTROY;
@@ -54,11 +39,11 @@ sub tests {
 	}
 
 	# Next, a single element within a parent
-	{
+	SCOPE: {
 		my $k1 = scalar keys %PPI::Element::_PARENT;
 		my $k2;
 		my $k3;
-		{
+		SCOPE: {
 			my $Token     = PPI::Token::Number->new( '1' );
 			my $Statement = PPI::Statement->new;
 			$Statement->add_element( $Token );
