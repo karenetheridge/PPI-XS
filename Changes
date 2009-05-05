@@ -1,7 +1,7 @@
 Changes for Perl extension PPI-XS
 
-0.900 Fri 28 Jan 2005
-	- Created initial implementation
-
 0.901 Tue  5 May 2009
 	- Incremental release to flush out packaging bugs
+
+0.900 Fri 28 Jan 2005
+	- Created initial implementation
