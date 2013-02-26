@@ -42,7 +42,7 @@ if ( $VERSION > $PPI::VERSION ) {
 	# (example) PPI::Element::exclude_this
 } elsif ( $VERSION < $PPI::VERSION ) {
 	# It is newer, it has the option of excluding functions
-	if ( defined @PPI::XS_EXCLUDE ) {
+	if ( @PPI::XS_EXCLUDE ) {
 		# It as defined things for us to exclude
 		%EXCLUDE = map { $_ => 1 } @PPI::XS_EXCLUDE;
 	}
