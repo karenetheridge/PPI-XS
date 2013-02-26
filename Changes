@@ -1,5 +1,8 @@
 Changes for Perl extension PPI-XS
 
+0.902 Tue 26 Feb 2013
+	- Fix "defined @array" deprecation warning
+
 0.901 Tue  5 May 2009
 	- Incremental release to flush out packaging bugs
 
