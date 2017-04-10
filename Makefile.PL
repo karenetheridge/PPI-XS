@@ -1,3 +1,4 @@
+use lib '.';
 use inc::Module::Install::DSL 0.86;
 
 all_from      lib/PPI/XS.pm
