@@ -16,7 +16,7 @@ use PPI 1.000 ();
 # Define compatibility information
 use vars qw{$VERSION $PM_COMPATIBLE %EXCLUDE};
 BEGIN {
-	$VERSION       = '0.902';
+	$VERSION       = '0.904';
 	$PM_COMPATIBLE = '0.844';
 	%EXCLUDE       = ();
 }
