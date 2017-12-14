@@ -14,7 +14,7 @@ use XSLoader;
 use PPI 1.000 ();
 
 # Define compatibility information
-our $VERSION       = '0.910';
+our $VERSION = '0.911';
 our $PM_COMPATIBLE = '0.844';
 our %EXCLUDE       = ();
 
