@@ -14,12 +14,9 @@ use XSLoader;
 use PPI 1.000 ();
 
 # Define compatibility information
-use vars qw{$VERSION $PM_COMPATIBLE %EXCLUDE};
-BEGIN {
-	$VERSION       = '0.910';
-	$PM_COMPATIBLE = '0.844';
-	%EXCLUDE       = ();
-}
+our $VERSION       = '0.910';
+our $PM_COMPATIBLE = '0.844';
+our %EXCLUDE       = ();
 
 # Does the main package define the minimum set of variables?
 return 1 unless defined $PPI::VERSION;
