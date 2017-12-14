@@ -1,6 +1,6 @@
 Revision history for PPI-XS
 
-{{$NEXT}}
+0.910     2017-12-14 04:24:41Z
         - switch packaging to Dist::Zilla, which makes the distribution
           installable again on perl 5.27.7  (See RT#123867)
 
