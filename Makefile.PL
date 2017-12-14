@@ -1,8 +1,17 @@
-use lib '.';
-use inc::Module::Install::DSL 0.86;
+use strict;
+use warnings;
 
-all_from      lib/PPI/XS.pm
-requires      PPI        1.000
-test_requires File::Spec 0.82
-test_requires Test::More 0.47
-ppport
+use lib 'inc';
+use ExtUtils::MakeMaker::Dist::Zilla::Develop;
+
+WriteMakefile(
+    NAME => 'PPI::XS',
+    VERSION_FROM => 'lib/PPI/XS.pm',
+    INSTALLMAN1DIR => 'none',
+    INSTALLMAN3DIR => 'none',
+    NORECURS => 1,
+);
+
+use Devel::PPPort;
+Devel::PPPort::WriteFile();
+system("$^X ppport.h --compat-version=5.006 --quiet *.h XS.xs");

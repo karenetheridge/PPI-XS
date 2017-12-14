@@ -1,0 +1,14 @@
+/.ackrc
+/.build/
+!/.gitignore
+/.latest
+/PPI-XS-*/
+/PPI-XS-*.tar.gz
+/Makefile
+/Makefile.old
+/MYMETA.*
+/pm_to_blib
+/*.bs
+/*.c
+/*.o
+/blib/

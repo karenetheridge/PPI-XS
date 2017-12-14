@@ -1,4 +1,8 @@
-Changes for Perl extension PPI-XS
+Revision history for PPI-XS
+
+{{$NEXT}}
+        - switch packaging to Dist::Zilla, which makes the distribution
+          installable again on perl 5.27.7  (See RT#123867)
 
 0.904     2017-04-10 15:50:43Z
 	- Fix Makefile.PL for perls without '.' in @INC
