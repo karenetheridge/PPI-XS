@@ -1,0 +1,17 @@
+[
+    next_sibling => {
+        desc  => '',
+        setup => '$e = ($d = PPI::Document->new(\q($foo + $bar)))->{children}[0]{children}[0]',
+        code  => '$e->next_sibling',
+    },
+    next_sibling_no_parent => {
+        desc  => '',
+        setup => '$e = PPI::Document->new(\q($foo))',
+        code  => '$e->next_sibling',
+    },
+    next_sibling_no_siblings => {
+        desc  => '',
+        setup => '$e = ($d = PPI::Document->new(\q($foo)))->{children}[0]{children}[0]',
+        code  => '$e->next_sibling',
+    },
+];

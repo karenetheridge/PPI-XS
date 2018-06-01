@@ -1,0 +1,17 @@
+#!/bin/sh -e
+
+bench='../perl/Porting/bench.pl'
+
+if [ ! -e $bench ]; then
+    echo "Can't find bench.pl"
+    exit 1;
+fi
+
+make
+
+perl=`which perl`
+
+$bench -w /tmp/bench --perlargs='-I. -Mbench=1' $perl=pp
+$bench -r /tmp/bench --perlargs='-I. -Mbench=0' $perl=xs
+
+rm /tmp/bench
